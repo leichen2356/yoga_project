@@ -1,0 +1,6 @@
+pose,total,training,validation,training_percent,validation_percent,subpose_stratified
+downdog,199,159,40,79.89949748743719,20.100502512562816,False
+goddess,162,130,32,80.24691358024691,19.753086419753085,False
+plank,255,204,51,80.0,20.0,True
+tree,150,120,30,80.0,20.0,True
+warrior2,249,199,50,79.91967871485944,20.080321285140563,True
