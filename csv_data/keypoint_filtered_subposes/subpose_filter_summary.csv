@@ -1,0 +1,16 @@
+subpose_label,status,train_total,train_retained,train_removed,test_total,test_retained,test_removed,total,retained,removed
+downdog_subpose_1,retained,199,199,0,94,94,0,293,293,0
+goddess_subpose_1,removed,4,0,4,0,0,0,4,0,4
+goddess_subpose_2,retained,162,162,0,78,78,0,240,240,0
+goddess_subpose_3,removed,6,0,6,2,0,2,8,0,8
+plank_subpose_1,retained,13,13,0,1,1,0,14,14,0
+plank_subpose_2,retained,124,124,0,44,44,0,168,168,0
+plank_subpose_3,removed,8,0,8,2,0,2,10,0,10
+plank_subpose_4,retained,118,118,0,68,68,0,186,186,0
+tree_left_subpose_1,removed,4,0,4,0,0,0,4,0,4
+tree_left_subpose_2,retained,50,50,0,29,29,0,79,79,0
+tree_left_subpose_3,removed,1,0,1,0,0,0,1,0,1
+tree_right_subpose_2,retained,100,100,0,40,40,0,140,140,0
+tree_right_subpose_3,removed,4,0,4,0,0,0,4,0,4
+warrior2_left_subpose_1,retained,87,87,0,42,42,0,129,129,0
+warrior2_right_subpose_1,retained,162,162,0,65,65,0,227,227,0

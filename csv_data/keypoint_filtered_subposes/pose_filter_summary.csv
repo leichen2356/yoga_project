@@ -1,0 +1,6 @@
+pose,train_total,train_retained,train_removed,test_total,test_retained,test_removed,total,retained,removed
+downdog,199,199,0,94,94,0,293,293,0
+goddess,172,162,10,80,78,2,252,240,12
+plank,263,255,8,115,113,2,378,368,10
+tree,159,150,9,69,69,0,228,219,9
+warrior2,249,249,0,107,107,0,356,356,0
