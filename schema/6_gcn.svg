@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1170" viewBox="0 0 1000 1170">
+<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#64748b"/></marker></defs>
+<rect width="1000" height="1170" fill="#f8fafc"/>
+<text x="50" y="52" font-family="Arial" font-size="29" font-weight="bold" fill="#0f172a">Graph Convolutional Network (GCN) — training schema</text>
+<text x="50" y="83" font-family="Arial" font-size="18" fill="#475569">Implemented — notebook 9</text>
+<rect x="50" y="110" width="900" height="140" rx="12" fill="white" stroke="#cbd5e1"/>
+<text x="75" y="139" font-family="Arial" font-size="20" font-weight="bold" fill="#0f766e">1. Prepared data</text>
+<text x="75" y="167" font-family="Arial" font-size="18" fill="#334155">Existing train / validation / test CSVs; no new split</text>
+<text x="75" y="192" font-family="Arial" font-size="18" fill="#334155">76 features: 23 keypoints × XYZ + 7 joint angles</text>
+<text x="75" y="217" font-family="Arial" font-size="18" fill="#334155">Target: subpose_label (9 training subtypes); metadata excluded</text>
+<path d="M500,251 L500,268" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="50" y="274" width="900" height="140" rx="12" fill="white" stroke="#cbd5e1"/>
+<text x="75" y="303" font-family="Arial" font-size="20" font-weight="bold" fill="#0f766e">2. Model input</text>
+<text x="75" y="331" font-family="Arial" font-size="18" fill="#334155">23 keypoints; XYZ per node; training-only feature scaling</text>
+<text x="75" y="356" font-family="Arial" font-size="18" fill="#334155">Body edges + custom nose-to-shoulder links + self-loops</text>
+<text x="75" y="381" font-family="Arial" font-size="18" fill="#334155">Keep 7 angle features as a separate graph-level input</text>
+<path d="M500,415 L500,432" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="50" y="438" width="900" height="140" rx="12" fill="white" stroke="#cbd5e1"/>
+<text x="75" y="467" font-family="Arial" font-size="20" font-weight="bold" fill="#0f766e">3. Train on training split</text>
+<text x="75" y="495" font-family="Arial" font-size="18" fill="#334155">GCN(3→64) + ReLU → GCN(64→64) + ReLU; dropout=0.1</text>
+<text x="75" y="520" font-family="Arial" font-size="18" fill="#334155">Mean pool nodes → concatenate 7 angles → Dense(71→9)</text>
+<text x="75" y="545" font-family="Arial" font-size="18" fill="#334155">Train logits with cross-entropy; softmax for inference</text>
+<path d="M500,579 L500,596" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="50" y="602" width="900" height="140" rx="12" fill="white" stroke="#cbd5e1"/>
+<text x="75" y="631" font-family="Arial" font-size="20" font-weight="bold" fill="#0f766e">4. Validation and selection</text>
+<text x="75" y="659" font-family="Arial" font-size="18" fill="#334155">Choose checkpoint by validation macro-F1, then accuracy</text>
+<text x="75" y="684" font-family="Arial" font-size="18" fill="#334155">Adam lr=0.001; max 600 epochs; patience=100; batch=64</text>
+<path d="M500,743 L500,760" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="50" y="766" width="900" height="140" rx="12" fill="white" stroke="#cbd5e1"/>
+<text x="75" y="795" font-family="Arial" font-size="20" font-weight="bold" fill="#0f766e">5. Held-out evaluation</text>
+<text x="75" y="823" font-family="Arial" font-size="18" fill="#334155">Predict labels and class probabilities on validation and test</text>
+<text x="75" y="848" font-family="Arial" font-size="18" fill="#334155">Accuracy, macro/weighted precision, recall and F1</text>
+<text x="75" y="873" font-family="Arial" font-size="18" fill="#334155">Per-subtype reports; 11 test labels include 2 unseen subtypes</text>
+<path d="M500,907 L500,924" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="50" y="930" width="900" height="140" rx="12" fill="white" stroke="#cbd5e1"/>
+<text x="75" y="959" font-family="Arial" font-size="20" font-weight="bold" fill="#0f766e">6. Save for backend inference</text>
+<text x="75" y="987" font-family="Arial" font-size="18" fill="#334155">models/gcn.pt + gcn_model.py + graph/label/scaling metadata</text>
+<text x="75" y="1012" font-family="Arial" font-size="18" fill="#334155">Output: model/code9_gcn_subpose_classification/</text>
+<text x="75" y="1037" font-family="Arial" font-size="18" fill="#334155">Save feature order and class mapping in model metadata</text>
+<text x="50" y="1107" font-family="Arial" font-size="15" fill="#475569">downdog_subpose_1, goddess_subpose_2, plank_subpose_1</text>
+<text x="50" y="1127" font-family="Arial" font-size="15" fill="#475569">plank_subpose_2, plank_subpose_4, tree_left_subpose_2</text>
+<text x="50" y="1147" font-family="Arial" font-size="15" fill="#475569">tree_right_subpose_2, warrior2_left_subpose_1, warrior2_right_subpose_1</text>
+</svg>

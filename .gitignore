@@ -2,3 +2,6 @@ data/processed/*
 data/raw/*
 data/test/*
 model/*
+.dependencies/
+__pycache__/
+*.pyc
